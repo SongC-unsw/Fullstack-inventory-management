@@ -39,3 +39,46 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Local Netlify folder
+.netlify
+
+# Service worker
+sw.*
+
+# Logs
+logs
+*.log
+
+# Cache directories
+.npm
+.eslintcache
+
+# Mac specific
+.AppleDouble
+.LSOverride
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Content build directories
+dist/
+.cache/
+
+# Optional npm cache directory
+.npm
+
+# Optional stylelint cache
+.stylelintcache
+
+.DS_Store
+.DS_Store?
+._*

@@ -72,7 +72,7 @@ const Sidebar = () => {
         <SidebarLink href='/expenses' icon={CircleDollarSign} label='Expenses' isCollapsed={isSidebarCollapsed} />
       </div>
       {/* FOOTER*/}
-      <div>
+      <div className={`${isSidebarCollapsed ? "hidden" : "block"} mb-10`}>
         <p className='text-center text-xs text-gray-500'>&copy; {currentYear} STOCKX</p>
       </div>
     </div>
