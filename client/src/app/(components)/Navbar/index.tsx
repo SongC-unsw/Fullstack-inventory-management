@@ -2,17 +2,24 @@
 import React from "react";
 import Link from "next/link";
 import { Bell, Menu, Settings, Sun } from "lucide-react";
-const index = () => {
-  {
-    /* NAVBAR LAYOUT */
-  }
+import { setIsSidebarCollapsed } from "@/state";
+import { useAppDispatch, useAppSelector } from "@/app/redux";
+
+const Navbar = () => {
+  const dispatch = useAppDispatch();
+  // get the current state of sidebar
+  const isSidebarCollapsed = useAppSelector((state) => state.global.isSidebarCollapsed);
+  // invert the sidebar state
+  const toggleSidebar = () => {
+    dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
+  };
   return (
     <>
       <div className='flex justify-between items-center w-full mb-7'>
         {/*LEFT SIDE */}
         <div className='flex justify-between items-center gap-5'>
           <button className='px-3 py-3 bg-gray-100 rounded-full hover:bg-blue-100' onClick={() => {}}>
-            <Menu className='w-4 h-4' />
+            <Menu className='w-4 h-4' onClick={toggleSidebar} />
           </button>
 
           <div className='relative'>
@@ -62,4 +69,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Navbar;
