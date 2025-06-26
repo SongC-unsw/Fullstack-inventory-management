@@ -50,7 +50,7 @@ const Sidebar = () => {
   return (
     <div className={sidebarClassNames}>
       {/* Pass in the styling for the whole sidebar */}
-      <div className={`flex gap-3 justify-between items-center pt-3 ${isSidebarCollapsed ? "px-2" : "px-8"}`}>
+      <div className={`flex gap-2 justify-between items-center pt-3 ${isSidebarCollapsed ? "px-2" : "px-8"}`}>
         {/* LOGO part */}
         {/* Sidebar align to the left when larger than md */}
         <div>
