@@ -6,6 +6,7 @@ import React from "react";
 import dayjs from "dayjs";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 const Sidebar = () => {
   const currentYear = dayjs().year();
@@ -49,10 +50,12 @@ const Sidebar = () => {
   return (
     <div className={sidebarClassNames}>
       {/* Pass in the styling for the whole sidebar */}
-      <div className={`flex gap-3 justify-between items-center pt-8 ${isSidebarCollapsed ? "px-5" : "px-8"}`}>
+      <div className={`flex gap-3 justify-between items-center pt-3 ${isSidebarCollapsed ? "px-2" : "px-8"}`}>
         {/* LOGO part */}
         {/* Sidebar align to the left when larger than md */}
-        <div>logo placeholder</div>
+        <div>
+          <Image src={"/logo.png"} alt='StockX Logo' width={100} height={100} />
+        </div>
         <h1 className={`font-extrabold text-2xl ${isSidebarCollapsed ? "hidden" : "block"}`}>STOCKX</h1>
         <button className='md:hidden px-3 py-3 bg-gray-100 rounded-full hover:bg-blue-100' onClick={toggleSidebar}>
           {/* only set the button on the sidebar */}
@@ -62,7 +65,7 @@ const Sidebar = () => {
         </button>
       </div>
       {/* SIDEBAR LINKS */}
-      <div className='flex-grow mt-8'>
+      <div className='flex-grow mt-3'>
         {/* links here  link to not grow when page size grow*/}
         <SidebarLink href='/dashboard' icon={Layout} label='Dashboard' isCollapsed={isSidebarCollapsed} />
         <SidebarLink href='/inventory' icon={Archive} label='Inventory' isCollapsed={isSidebarCollapsed} />
