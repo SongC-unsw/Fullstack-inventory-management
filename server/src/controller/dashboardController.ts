@@ -1,8 +1,11 @@
 import { Request, Response } from "express";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "../../generated/prisma";
 
 const prisma = new PrismaClient();
-export const getDashboardMetrics = async (req: Request, res: Response): Promise<void> => {
+export const getDashboardMetrics = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   try {
     const popularProducts = await prisma.products.findMany({
       take: 15,
@@ -28,17 +31,21 @@ export const getDashboardMetrics = async (req: Request, res: Response): Promise<
         date: "desc",
       },
     });
-    const expenseByCategorySummaryRaw = await prisma.expenseByCategory.findMany({
-      take: 5,
-      orderBy: {
-        date: "desc",
-      },
-    });
+    const expenseByCategorySummaryRaw = await prisma.expenseByCategory.findMany(
+      {
+        take: 5,
+        orderBy: {
+          date: "desc",
+        },
+      }
+    );
 
-    const expenseByCategorySummary = expenseByCategorySummaryRaw.map((item: any) => ({
-      ...item,
-      amount: item.amount.toString(),
-    }));
+    const expenseByCategorySummary = expenseByCategorySummaryRaw.map(
+      (item: any) => ({
+        ...item,
+        amount: item.amount.toString(),
+      })
+    );
 
     res.json({
       popularProducts,
