@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "../generated/prisma";
 import fs from "fs";
 import path from "path";
 const prisma = new PrismaClient();
@@ -15,7 +15,9 @@ async function deleteAllData(orderedFileNames: string[]) {
       await model.deleteMany({});
       console.log(`Cleared data from ${modelName}`);
     } else {
-      console.error(`Model ${modelName} not found. Please ensure the model name is correctly specified.`);
+      console.error(
+        `Model ${modelName} not found. Please ensure the model name is correctly specified.`
+      );
     }
   }
 }
