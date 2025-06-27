@@ -2,7 +2,7 @@
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
-
+/* @config "../../tailwind.config.ts"; */
 *,
 *::before,
 *::after {
@@ -19,3 +19,5 @@ app {
   @apply bg-gray-500;
   @apply text-gray-900;
 }
+
+/* TODO: DARK MODE*/
