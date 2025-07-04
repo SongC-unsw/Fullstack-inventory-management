@@ -72,7 +72,9 @@ const CardSalesSummary = () => {
                 <select
                   className="shadow-sm border border-gray-300 bg-white p-2 rounded"
                   value={timeframe}
-                  onChange={(e) => setTimeframe(e.target.value)}
+                  onChange={(e) => {
+                    setTimeframe(e.target.value);
+                  }}
                 >
                   <option value="daily">Daily</option>
                   <option value="weekly">Weekly</option>
