@@ -41,48 +41,50 @@ const CardSalesSummary = () => {
   }
 
   return (
-    <div className="row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl flex flex-col justify-between">
+    <div className="flex flex-col row-span-3 xl:row-span-6 bg-white shadow-md rounded-2xl justify-between">
       {isLoading ? (
         <div className="m-5">Loading...</div>
       ) : (
         <>
-          {/* Header Part */}
-          <div>
+          {/* Header Part  1st*/}
+          <section>
             <h2 className="text-lg font-semibold mb-2 px-7 pt-5">
               Sales Summary
             </h2>
             <hr className="border-gray-300" />
-            {/* Body Part */}
-            <div>
-              <div className="flex justify-between items-center mb-6 px-7 mt-5">
-                <div className="text-lg font-medium">
-                  <p className="text-xs text-gray-400">Total Sales</p>
-                  <span className="text-2xl font-extrabold">
-                    $
-                    {(totalValueSum / 1000000).toLocaleString("en", {
-                      maximumFractionDigits: 2,
-                    })}
-                    m
-                  </span>
-                  <span className="text-green-500 text-sm ml-2">
-                    <TrendingUp className="inline w-4 h-4 mr-1" />
-                    {averageChangePercentage.toFixed(2)}%
-                  </span>
-                </div>
-                <select
-                  className="shadow-sm border border-gray-300 bg-white p-2 rounded"
-                  value={timeframe}
-                  onChange={(e) => {
-                    setTimeframe(e.target.value);
-                  }}
-                >
-                  <option value="daily">Daily</option>
-                  <option value="weekly">Weekly</option>
-                  <option value="monthly">Monthly</option>
-                </select>
+          </section>
+          {/* Body Part 2nd*/}
+          <div>
+            <div className="flex justify-between items-center mb-6 px-7 mt-5">
+              <div className="text-lg font-medium">
+                <p className="text-xs text-gray-400">Total Sales</p>
+                <span className="text-2xl font-extrabold">
+                  $
+                  {(totalValueSum / 1000000).toLocaleString("en", {
+                    maximumFractionDigits: 2,
+                  })}
+                  m
+                </span>
+                <span className="text-green-500 text-sm ml-2">
+                  <TrendingUp className="inline w-4 h-4 mr-1" />
+                  {averageChangePercentage.toFixed(2)}%
+                </span>
               </div>
-              {/*Chart part */}
-              <ResponsiveContainer width="100%" height={350} className="px-7">
+              <select
+                className="shadow-sm border border-gray-300 bg-white p-2 rounded"
+                value={timeframe}
+                onChange={(e) => {
+                  setTimeframe(e.target.value);
+                }}
+              >
+                <option value="daily">Daily</option>
+                <option value="weekly">Weekly</option>
+                <option value="monthly">Monthly</option>
+              </select>
+            </div>
+            {/*Chart part */}
+            <div>
+              <ResponsiveContainer width="100%" height={500} className="px-7">
                 <BarChart
                   data={salesData}
                   margin={{ top: 0, right: 0, left: -25, bottom: 0 }}
@@ -125,16 +127,16 @@ const CardSalesSummary = () => {
                 </BarChart>
               </ResponsiveContainer>
             </div>
-            {/* FOOTER */}
-            <div>
-              <hr className="border-gray-300" />
-              <div className="flex justify-between items-center mt-6 text-sm px-7 mb-4">
-                <p>{salesData.length || 0} days</p>
-                <p className="text-sm">
-                  Highest Sales Date:{" "}
-                  <span className="font-bold">{highestValueDate}</span>
-                </p>
-              </div>
+          </div>
+          {/* FOOTER */}
+          <div>
+            <hr className="border-gray-300" />
+            <div className="flex justify-between items-center mt-6 text-sm px-7 mb-4">
+              <p>{salesData.length || 0} days</p>
+              <p className="text-sm">
+                Highest Sales Date:{" "}
+                <span className="font-bold">{highestValueDate}</span>
+              </p>
             </div>
           </div>
         </>

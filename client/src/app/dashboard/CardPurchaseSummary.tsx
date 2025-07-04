@@ -23,40 +23,42 @@ const CardPurchaseSummary = () => {
       ) : (
         <>
           {/* Header */}
-          <h3 className="font-semibold text-lg px-7 pt-5 pb-2">
-            Pruchase Summary
-          </h3>
-          <hr className="border-gray-300" />
-          {/* Body Part */}
           <div>
-            <div className="mb-4 mt-7 px-7">
-              <p className="text-xs text-gray-400">Purchased</p>
-              <div className="flex items-center">
-                <p className="text-2xl font-bold">
-                  {lastDataPoint
-                    ? numeral(lastDataPoint.totalPurchased).format("$0.00a")
-                    : "0"}
+            <h2 className="font-semibold text-lg px-7 pt-5 pb-2">
+              Pruchase Summary
+            </h2>
+            <hr className="border-gray-300" />
+          </div>
+          {/* Body Part */}
+          <div className="mb-4 mt-7 px-7">
+            <p className="text-xs text-gray-400">Purchased</p>
+            <div className="flex items-center">
+              <p className="text-2xl font-bold">
+                {lastDataPoint
+                  ? numeral(lastDataPoint.totalPurchased).format("$0.00a")
+                  : "0"}
+              </p>
+              {/* Trending Icon */}
+              {lastDataPoint && (
+                <p
+                  className={`text-sm flex ml-3 ${
+                    lastDataPoint.changePercentage! >= 0
+                      ? "text-green-500"
+                      : "text-red-500"
+                  }`}
+                >
+                  {lastDataPoint.changePercentage! >= 0 ? (
+                    <TrendingUp className="w-4 h-4 mr-1" />
+                  ) : (
+                    <TrendingDown className="w-4 h-4 mr-1" />
+                  )}
+                  {/* Change Percentage */}
+                  {Math.abs(lastDataPoint.changePercentage!)}%
                 </p>
-                {/* Trending Icon */}
-                {lastDataPoint && (
-                  <p
-                    className={`text-sm flex ml-3 ${
-                      lastDataPoint.changePercentage! >= 0
-                        ? "text-green-500"
-                        : "text-red-500"
-                    }`}
-                  >
-                    {lastDataPoint.changePercentage! >= 0 ? (
-                      <TrendingUp className="w-4 h-4 mr-1" />
-                    ) : (
-                      <TrendingDown className="w-4 h-4 mr-1" />
-                    )}
-                    {/* Change Percentage */}
-                    {Math.abs(lastDataPoint.changePercentage!)}%
-                  </p>
-                )}
-              </div>
+              )}
             </div>
+          </div>
+          <div className="body-part">
             {/* Chart Part */}
             <ResponsiveContainer width="100%" height={200} className="p-2">
               <AreaChart

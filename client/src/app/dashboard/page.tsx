@@ -1,3 +1,4 @@
+import CardExpenseSummary from "./CardExpenseSummary";
 import CardPopularProducts from "./CardPopularProducts";
 import CardPurchaseSummary from "./CardPurchaseSummary";
 import CardSalesSummary from "./CardSalesSummary";
@@ -19,7 +20,9 @@ export default function Dashboard() {
         {/* Purchase Summary */}
         <CardPurchaseSummary />
         {/* </div> */}
-        <div className="bg-black row-span-3">D</div>
+        {/* <div className="bg-black row-span-3">D</div> */}
+        <CardExpenseSummary />
+        {/* Card expense summary  */}
         <div className="bg-green-400 md:row-span-1 xl:row-span-2">E</div>
         <div className="bg-green-900 md:row-span-1 xl:row-span-2">F</div>
         <div className="bg-amber-800 md:row-span-1 xl:row-span-2">G</div>
