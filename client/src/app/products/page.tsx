@@ -1,9 +1,17 @@
 "use client";
-import { useGetProductsQuery } from "@/state/api";
+import { useCreateProductMutation, useGetProductsQuery } from "@/state/api";
 import { PlusCircleIcon, SearchIcon } from "lucide-react";
 import React, { useState } from "react";
 import Header from "@/app/(components)/Header";
 import Rating from "../(components)/Rating";
+import CreateProductModal from "./CreateProductModal";
+
+type ProductFormData = {
+  name: string;
+  price: number;
+  stockQuantity: number;
+  rating: number;
+};
 
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,6 +22,12 @@ const Products = () => {
     isLoading,
     isError,
   } = useGetProductsQuery(searchTerm);
+
+  const [createProduct] = useCreateProductMutation();
+  const handleCreateProduct = async (product: ProductFormData) => {
+    await createProduct(product);
+  };
+
   if (isLoading) return <div className="py-4">Loading...</div>;
   if (isError || !products)
     return (
@@ -21,6 +35,7 @@ const Products = () => {
         Failed to fetch products
       </div>
     );
+
   return (
     <div className="mx-auto pb-5 w-full">
       {/* Search Bar */}
@@ -75,6 +90,12 @@ const Products = () => {
           ))
         )}
       </div>
+      {/* MODAL */}
+      <CreateProductModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        onCreateProduct={handleCreateProduct}
+      />
     </div>
   );
 };
