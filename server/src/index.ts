@@ -6,6 +6,7 @@ import helmet from "helmet";
 import morgan from "morgan";
 /* ROUTES IMPORT */
 import dashboardRoutes from "./routes/dashboardRoutes";
+import productRoutes from "./routes/productRoutes";
 /*CONFIGS */
 dotenv.config();
 const app = express();
@@ -18,7 +19,8 @@ app.use(bodyParser.urlencoded({ extended: false })); // This line tells Express 
 app.use(cors());
 
 /* ROUTES */
-app.use("/dashboard", dashboardRoutes);
+app.use("/dashboard", dashboardRoutes); // http://localhost:8000/dashboard
+app.use("/products", productRoutes); // http://localhost:8000/products
 
 /* SERVER */
 /* SERVER RUNNING HERE */
