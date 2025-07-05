@@ -1,7 +1,16 @@
+import {
+  CheckCircle,
+  Package,
+  Tag,
+  TrendingDown,
+  TrendingUp,
+  Users,
+} from "lucide-react";
 import CardExpenseSummary from "./CardExpenseSummary";
 import CardPopularProducts from "./CardPopularProducts";
 import CardPurchaseSummary from "./CardPurchaseSummary";
 import CardSalesSummary from "./CardSalesSummary";
+import StatCard from "./StatCard";
 
 export default function Dashboard() {
   return (
@@ -23,9 +32,66 @@ export default function Dashboard() {
         {/* <div className="bg-black row-span-3">D</div> */}
         <CardExpenseSummary />
         {/* Card expense summary  */}
-        <div className="bg-green-400 md:row-span-1 xl:row-span-2">E</div>
+        <StatCard
+          title="Customer & Expenses"
+          primaryIcon={<Package className="text-blue-500 w-6 h-6" />}
+          details={[
+            {
+              title: "Customer Growth",
+              amount: "175.00",
+              changePercentage: 10,
+              IconComponent: TrendingUp,
+            },
+            {
+              title: "Expenses",
+              amount: "175.00",
+              changePercentage: -70,
+              IconComponent: TrendingDown,
+            },
+          ]}
+          dateRange="24 Dec 2024 - 23 Jan 2025"
+        />
+        <StatCard
+          title="Dues & Pending Orders"
+          primaryIcon={<CheckCircle className="text-blue-500 w-6 h-6" />}
+          details={[
+            {
+              title: "Dues",
+              amount: "143.00",
+              changePercentage: 10,
+              IconComponent: TrendingUp,
+            },
+            {
+              title: "Pending Orders",
+              amount: "10",
+              changePercentage: -50,
+              IconComponent: TrendingDown,
+            },
+          ]}
+          dateRange="24 Dec 2024 - 23 Jan 2025"
+        />
+        <StatCard
+          title="Sales & Discounts"
+          primaryIcon={<Tag className="text-blue-500 w-6 h-6" />}
+          details={[
+            {
+              title: "Sales",
+              amount: "1000.00",
+              changePercentage: 20,
+              IconComponent: TrendingUp,
+            },
+            {
+              title: "Discounts",
+              amount: "100.00",
+              changePercentage: -10,
+              IconComponent: TrendingDown,
+            },
+          ]}
+          dateRange="24 Dec 2024 - 23 Jan 2025"
+        />
+        {/* <div className="bg-green-400 md:row-span-1 xl:row-span-2">E</div>
         <div className="bg-green-900 md:row-span-1 xl:row-span-2">F</div>
-        <div className="bg-amber-800 md:row-span-1 xl:row-span-2">G</div>
+        <div className="bg-amber-800 md:row-span-1 xl:row-span-2">G</div> */}
       </div>
     </>
   );
