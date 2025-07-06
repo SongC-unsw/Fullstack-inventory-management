@@ -46,5 +46,11 @@
     "tw-animate-css": "^1.3.5",
     "tw-colors": "^3.3.2",
     "typescript": "^5"
+  },
+  "resolutions": {
+    "lightningcss": "1.19.0"
+  },
+  "overrides": {
+    "lightningcss": "1.19.0"
   }
 }
