@@ -64,11 +64,11 @@ export const api = createApi({
       query: () => "/dashboard",
       providesTags: ["DashboardMetrics"],
     }),
-    getUsers: build.query<User, void>({
+    getUsers: build.query<User[], void>({
       query: () => "/users",
       providesTags: ["Users"],
     }),
-    getExpensesByCategory: build.query<ExpenseByCategorySummary, void>({
+    getExpensesByCategory: build.query<ExpenseByCategorySummary[], void>({
       query: () => "/expenses",
       providesTags: ["ExpensesByCategory"],
     }),
