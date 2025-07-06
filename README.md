@@ -2,7 +2,7 @@
 
 React, Redux, Redux Query Toolkit, Typescript, Nextjs15, TailwindCSS V4
 
-# Deployed using
+## Deployed using
 
 AWS Amplify, AWS EC2, AWS RDS, AWS S3
 
