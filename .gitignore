@@ -82,3 +82,9 @@ dist/
 .DS_Store
 .DS_Store?
 ._*
+
+client/dist/
+server/dist/
+client/.env/
+server/.env/
+client/.next/
