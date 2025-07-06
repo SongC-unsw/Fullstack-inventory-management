@@ -4,7 +4,6 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { v4 } from "uuid";
 import { useState } from "react";

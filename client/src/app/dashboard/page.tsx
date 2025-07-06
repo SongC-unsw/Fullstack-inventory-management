@@ -4,7 +4,6 @@ import {
   Tag,
   TrendingDown,
   TrendingUp,
-  Users,
 } from "lucide-react";
 import CardExpenseSummary from "./CardExpenseSummary";
 import CardPopularProducts from "./CardPopularProducts";
